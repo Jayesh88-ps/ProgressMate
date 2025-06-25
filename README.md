@@ -6,4 +6,4 @@ I appeal for UI and UX betterment and upgradation.
 
 
 
-Note: This website is developed using chatGPT and some some custom code.
+Note: This website is developed using chatGPT and some custom code.
