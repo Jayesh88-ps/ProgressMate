@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProgressMate</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>ProgressMate</h1>
+    <button id="toggleMode" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+    <nav>
+      <button onclick="showTab('tasks')">Tasks</button>
+      <button onclick="showTab('learning')">Learning Log</button>
+      <button onclick="showTab('review')">Weekly Review</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="tasks" class="tab active">
+      <!-- Task manager UI will go here -->
+       <h2>Daily Task Manager</h2>
+<div class="task-input">
+  <input type="text" id="taskInput" placeholder="Enter your task..." />
+  <button onclick="addTask()">Add Task</button>
+</div>
+
+<ul id="taskList"></ul>
+
+    </section>
+
+    <section id="learning" class="tab">
+      <!-- Learning log UI will go here -->
+<h2>Learning Log</h2>
+<div class="learning-input">
+  <textarea id="learningInput" placeholder="What did you learn today?"></textarea>
+  <br />
+
+  <label for="categorySelect">Category:</label>
+  <select id="categorySelect">
+    <option value="General">General</option>
+    <option value="Tech">Tech</option>
+    <option value="Startup">Startup</option>
+    <option value="Life">Life</option>
+    <option value="Productivity">Productivity</option>
+    <option value="Health">Health</option>
+    <option value="Ipm">IPM</option>
+  </select>
+
+  <button onclick="addLearning()">Add Entry</button>
+</div>
+
+<input
+  type="text"
+  id="searchInput"
+  placeholder="🔍 Search by keyword, category or date..."
+  oninput="renderLearnings()"
+/>
+<p id="noResultsMsg" style="display: none; text-align: center; margin-top: 10px; color: #888;">No matching learnings found.</p>
+
+
+<ul id="learningList"></ul>
+
+
+    </section>
+
+    <section id="review" class="tab">
+      <!-- Weekly review UI will go here -->
+       <h2>Weekly Review</h2>
+
+<div class="review-section">
+  <h3>✅ Completed Tasks</h3>
+  <ul id="reviewTaskList"></ul>
+
+  <h3>📘 Learning Highlights</h3>
+  <ul id="reviewLearningList"></ul>
+  <h3>📊 Weekly Progress Chart</h3>
+<canvas id="progressChart" class="chart-canvas"></canvas>
+
+
+
+  <h3>📝 Weekly Reflection</h3>
+  <textarea id="weeklyReflection" placeholder="Write your weekly reflection here..."></textarea>
+  <br />
+  <button onclick="saveReflection()">Save Reflection</button>
+
+  <div id="savedReflection" style="margin-top: 15px;"></div>
+</div>
+
+    </section>
+  </main>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
